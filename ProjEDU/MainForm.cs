@@ -21,6 +21,7 @@ namespace ProjEDU
         private void theoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int a;
+            int b;
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
