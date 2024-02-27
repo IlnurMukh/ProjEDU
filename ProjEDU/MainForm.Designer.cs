@@ -30,30 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
-            theoryToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+
             testToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             button1 = new Button();
+
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { theoryToolStripMenuItem, exitToolStripMenuItem, testToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1296, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // theoryToolStripMenuItem
-            // 
-            theoryToolStripMenuItem.Name = "theoryToolStripMenuItem";
-            theoryToolStripMenuItem.Size = new Size(200, 24);
-            theoryToolStripMenuItem.Text = "Теоритический материал";
-            theoryToolStripMenuItem.Click += theoryToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
@@ -63,6 +57,7 @@
             exitToolStripMenuItem.Text = "Выход";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
+
             // testToolStripMenuItem
             // 
             testToolStripMenuItem.Name = "testToolStripMenuItem";
@@ -89,6 +84,7 @@
             button1.TabIndex = 2;
             button1.UseVisualStyleBackColor = true;
             // 
+
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -109,10 +105,11 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem theoryToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+
         private ToolStripMenuItem testToolStripMenuItem;
         private Label label1;
         private Button button1;
+
     }
 }
