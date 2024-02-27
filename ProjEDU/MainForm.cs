@@ -18,6 +18,7 @@ namespace ProjEDU
             Text = $"Вы вошли под логином {name}";
         }
 
+
         private void theoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int a;

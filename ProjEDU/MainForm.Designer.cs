@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             theoryToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             testToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,11 +70,32 @@
             testToolStripMenuItem.Text = "Пройти тестирование";
             testToolStripMenuItem.Click += testToolStripMenuItem_Click;
             // 
+            // label1
+            // 
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Location = new Point(12, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(1272, 446);
+            label1.TabIndex = 1;
+            label1.Text = "1. Порядковый счет в различных системах счисления.";
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Location = new Point(1197, 496);
+            button1.Name = "button1";
+            button1.Size = new Size(87, 63);
+            button1.TabIndex = 2;
+            button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1296, 571);
+            Controls.Add(button1);
+            Controls.Add(label1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
@@ -88,5 +112,7 @@
         private ToolStripMenuItem theoryToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem testToolStripMenuItem;
+        private Label label1;
+        private Button button1;
     }
 }
