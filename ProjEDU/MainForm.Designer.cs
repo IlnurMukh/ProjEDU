@@ -32,6 +32,7 @@
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
             testToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
             btnForward = new Button();
             richTextBox1 = new RichTextBox();
             menuStrip1.SuspendLayout();
@@ -40,7 +41,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, editToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1296, 28);
@@ -56,6 +57,7 @@
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // testToolStripMenuItem
+            // 
             // 
             testToolStripMenuItem.Name = "testToolStripMenuItem";
             testToolStripMenuItem.Size = new Size(32, 19);
@@ -78,6 +80,13 @@
             richTextBox1.Size = new Size(353, 207);
             richTextBox1.TabIndex = 3;
             richTextBox1.Text = "";
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(125, 24);
+            editToolStripMenuItem.Text = "Редактировать";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // MainForm
             // 
@@ -102,6 +111,7 @@
         private ToolStripMenuItem exitToolStripMenuItem;
 
         private ToolStripMenuItem testToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
         private Panel pnlTheoryTest;
         private Button btnTheory;
         private Button btnTest;
