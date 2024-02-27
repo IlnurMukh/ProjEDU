@@ -55,7 +55,7 @@ namespace ProjEDU
                     using (UserContext dbContext = new UserContext())
                     {
                         List<User> dbUsers = dbContext.Users.ToList();
-                        if (!dbUsers.Any(u => u.Login == tbLogin.Text))
+                        if (dbUsers.All(u => u.Login != tbLogin.Text))
                         {
                             dbContext.Users.Add(new User() { Login = tbLogin.Text, Password = tbPassword.Text });
                             dbContext.SaveChanges();
@@ -84,8 +84,15 @@ namespace ProjEDU
             if (_successful)
             {
                 MainForm mainForm = new MainForm(tbLogin.Text);
-                this.Hide();
-                mainForm.ShowDialog();
+                mainForm.Closed += (_, _) => this.Close();
+                this.Visible = false;
+                if (mainForm.ShowDialog() == DialogResult.OK)
+                {
+                    tbLogin.Text = "";
+                    tbPassword.Text = "";
+                    tbConfirmPassword.Text = "";
+                    Visible = true;
+                }
             }
         }
     }

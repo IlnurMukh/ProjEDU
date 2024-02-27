@@ -18,21 +18,15 @@ namespace ProjEDU
             Text = $"Вы вошли под логином {name}";
         }
 
-        private void theoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int a;
-            int b;
-            int c;
-        }
-
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //var authForm = new AuthForm();
+            ////authForm.Closed += (_, _) => this.Close();
+            ////this.Hide();
+            //this.Close();
+            //authForm.ShowDialog();
+            DialogResult = DialogResult.OK;
         }
     }
 }
