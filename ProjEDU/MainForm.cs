@@ -31,6 +31,28 @@ namespace ProjEDU
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTheory_Click(object sender, EventArgs e)
+        {
+            pnlTheoryTest.Visible = false;
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnForward_Click(object sender, EventArgs e)
         {
 
         }
