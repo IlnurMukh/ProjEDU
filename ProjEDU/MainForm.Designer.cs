@@ -31,11 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
-
             testToolStripMenuItem = new ToolStripMenuItem();
-            label1 = new Label();
-            button1 = new Button();
-
+            btnForward = new Button();
+            richTextBox1 = new RichTextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,36 +55,37 @@
             exitToolStripMenuItem.Text = "Выход";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-
-           
+            // testToolStripMenuItem
             // 
-            // label1
+            testToolStripMenuItem.Name = "testToolStripMenuItem";
+            testToolStripMenuItem.Size = new Size(32, 19);
             // 
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Location = new Point(12, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(1272, 446);
-            label1.TabIndex = 1;
-            label1.Text = "1. Порядковый счет в различных системах счисления.";
+            // btnForward
             // 
-            // button1
+            btnForward.BackgroundImage = (Image)resources.GetObject("btnForward.BackgroundImage");
+            btnForward.BackgroundImageLayout = ImageLayout.Stretch;
+            btnForward.Location = new Point(1125, 79);
+            btnForward.Name = "btnForward";
+            btnForward.Size = new Size(87, 63);
+            btnForward.TabIndex = 2;
+            btnForward.UseVisualStyleBackColor = true;
+            btnForward.Click += btnForward_Click;
             // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(1197, 496);
-            button1.Name = "button1";
-            button1.Size = new Size(87, 63);
-            button1.TabIndex = 2;
-            button1.UseVisualStyleBackColor = true;
+            // richTextBox1
             // 
-
+            richTextBox1.Location = new Point(415, 139);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(353, 207);
+            richTextBox1.TabIndex = 3;
+            richTextBox1.Text = "";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1296, 571);
-            Controls.Add(button1);
-            Controls.Add(label1);
+            Controls.Add(richTextBox1);
+            Controls.Add(btnForward);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
@@ -103,8 +102,10 @@
         private ToolStripMenuItem exitToolStripMenuItem;
 
         private ToolStripMenuItem testToolStripMenuItem;
-        private Label label1;
-        private Button button1;
-
+        private Panel pnlTheoryTest;
+        private Button btnTheory;
+        private Button btnTest;
+        private Button btnForward;
+        private RichTextBox richTextBox1;
     }
 }
