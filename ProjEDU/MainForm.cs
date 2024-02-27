@@ -29,5 +29,10 @@ namespace ProjEDU
             //authForm.ShowDialog();
             DialogResult = DialogResult.OK;
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

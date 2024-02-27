@@ -31,18 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
-
             testToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             button1 = new Button();
-
+            editToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, editToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1296, 28);
@@ -57,8 +56,10 @@
             exitToolStripMenuItem.Text = "Выход";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-
-           
+            // testToolStripMenuItem
+            // 
+            testToolStripMenuItem.Name = "testToolStripMenuItem";
+            testToolStripMenuItem.Size = new Size(32, 19);
             // 
             // label1
             // 
@@ -79,7 +80,13 @@
             button1.TabIndex = 2;
             button1.UseVisualStyleBackColor = true;
             // 
-
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(125, 24);
+            editToolStripMenuItem.Text = "Редактировать";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -105,6 +112,6 @@
         private ToolStripMenuItem testToolStripMenuItem;
         private Label label1;
         private Button button1;
-
+        private ToolStripMenuItem editToolStripMenuItem;
     }
 }
