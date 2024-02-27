@@ -58,12 +58,7 @@
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
 
-            // testToolStripMenuItem
-            // 
-            testToolStripMenuItem.Name = "testToolStripMenuItem";
-            testToolStripMenuItem.Size = new Size(176, 24);
-            testToolStripMenuItem.Text = "Пройти тестирование";
-            testToolStripMenuItem.Click += testToolStripMenuItem_Click;
+           
             // 
             // label1
             // 
