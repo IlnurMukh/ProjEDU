@@ -19,6 +19,7 @@ namespace ProjEDU
         }
 
 
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //var authForm = new AuthForm();
@@ -27,6 +28,11 @@ namespace ProjEDU
             //this.Close();
             //authForm.ShowDialog();
             DialogResult = DialogResult.OK;
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

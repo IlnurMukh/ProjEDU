@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            testToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
+            button1 = new Button();
+            editToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, editToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1296, 28);
@@ -51,11 +56,44 @@
             exitToolStripMenuItem.Text = "Выход";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
+            // testToolStripMenuItem
+            // 
+            testToolStripMenuItem.Name = "testToolStripMenuItem";
+            testToolStripMenuItem.Size = new Size(32, 19);
+            // 
+            // label1
+            // 
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Location = new Point(12, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(1272, 446);
+            label1.TabIndex = 1;
+            label1.Text = "1. Порядковый счет в различных системах счисления.";
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Location = new Point(1197, 496);
+            button1.Name = "button1";
+            button1.Size = new Size(87, 63);
+            button1.TabIndex = 2;
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(125, 24);
+            editToolStripMenuItem.Text = "Редактировать";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1296, 571);
+            Controls.Add(button1);
+            Controls.Add(label1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
@@ -70,5 +108,10 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem exitToolStripMenuItem;
+
+        private ToolStripMenuItem testToolStripMenuItem;
+        private Label label1;
+        private Button button1;
+        private ToolStripMenuItem editToolStripMenuItem;
     }
 }
