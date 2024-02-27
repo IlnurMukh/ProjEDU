@@ -43,27 +43,33 @@ namespace ProjEDU
         {
             if (_newAcc && tbPassword.Text == tbConfirmPassword.Text)
             {
-                if (true)
+                if (tbLogin.Text.Length < 6)
                 {
+                    MessageBox.Show("Некорректная длина логина", "Ошибка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                     //TODO Проверить логин
                 }
-                using (UserContext dbContext = new UserContext())
+                else
                 {
-                    List<User> dbUsers = dbContext.Users.ToList();
-                    if (!dbUsers.Any(u => u.Login == tbLogin.Text))
+                    using (UserContext dbContext = new UserContext())
                     {
-                        dbContext.Users.Add(new User(){ Login = tbLogin.Text, Password = tbPassword.Text });
-                        dbContext.SaveChanges();
-                        _successful = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        tbLogin.Text = "";
-                        tbPassword.Text = "";
-                        tbConfirmPassword.Text = "";
-                        //TODO Пользователь с таким логином уже существует 
+                        List<User> dbUsers = dbContext.Users.ToList();
+                        if (!dbUsers.Any(u => u.Login == tbLogin.Text))
+                        {
+                            dbContext.Users.Add(new User() { Login = tbLogin.Text, Password = tbPassword.Text });
+                            dbContext.SaveChanges();
+                            _successful = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                            tbLogin.Text = "";
+                            tbPassword.Text = "";
+                            tbConfirmPassword.Text = "";
+                        }
                     }
                 }
             }
