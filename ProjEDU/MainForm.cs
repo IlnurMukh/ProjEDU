@@ -22,6 +22,7 @@ namespace ProjEDU
         {
             int a;
             int b;
+            int c;
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
