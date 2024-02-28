@@ -16,6 +16,8 @@ namespace ProjEDU
         {
             InitializeComponent();
             Text = $"Вы вошли под логином {name}";
+            
+
         }
 
 
@@ -31,6 +33,9 @@ namespace ProjEDU
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -55,6 +60,25 @@ namespace ProjEDU
         private void btnForward_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
+            richTextBox1.Text = TakeText($"{e.Node.Name}.txt");
+        }
+        private string TakeText(string FileName)
+        {
+            string list;
+            if (File.Exists($"C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\Texts\\{FileName}"))
+            {
+                using (StreamReader sr = new StreamReader($"C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\Texts\\{FileName}"))
+                {
+                    list = sr.ReadToEnd();
+                }
+                return list;
+            }
+            return "";
         }
     }
 }
