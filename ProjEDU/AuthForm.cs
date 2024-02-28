@@ -7,6 +7,7 @@ namespace ProjEDU
     {
         private bool _newAcc = true;
         private bool _successful = false;
+        private bool _isTeacher = false;
         public AuthForm()
         {
             InitializeComponent();
@@ -41,6 +42,27 @@ namespace ProjEDU
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
+            if (!_newAcc)
+            {
+                using (UserContext dbContext = new UserContext())
+                {
+                    List<User> dbUsers = dbContext.Users.ToList();
+                    List<User> foundedUsers =
+                        dbUsers.Where(u => u.Login == tbLogin.Text && u.Password == tbPassword.Text).ToList();
+                    if (foundedUsers.Count > 0)
+                    {
+                        if (foundedUsers[0].Teacher)
+                            _isTeacher = true;
+                        _successful = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверные логин или пароль", "Ошибка",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
             if (_newAcc && tbPassword.Text == tbConfirmPassword.Text)
             {
                 if (tbLogin.Text.Length < 6)
@@ -83,7 +105,7 @@ namespace ProjEDU
 
             if (_successful)
             {
-                MainForm mainForm = new MainForm(tbLogin.Text);
+                MainForm mainForm = new MainForm(tbLogin.Text, _isTeacher);
                 mainForm.Closed += (_, _) => this.Close();
                 this.Visible = false;
                 if (mainForm.ShowDialog() == DialogResult.OK)
