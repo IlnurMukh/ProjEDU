@@ -12,23 +12,18 @@ namespace ProjEDU
 {
     public partial class MainForm : Form
     {
-        public MainForm(string name)
+        public MainForm(string name, bool isTeacher)
         {
             InitializeComponent();
+            if(!isTeacher)
+                editToolStripMenuItem.Enabled = false; editToolStripMenuItem.Visible = false;
             Text = $"Вы вошли под логином {name}";
             
 
         }
 
-
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var authForm = new AuthForm();
-            ////authForm.Closed += (_, _) => this.Close();
-            ////this.Hide();
-            //this.Close();
-            //authForm.ShowDialog();
             DialogResult = DialogResult.OK;
         }
 
