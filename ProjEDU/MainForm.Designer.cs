@@ -30,12 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            TreeNode treeNode1 = new TreeNode("Порядковый счет в различных системах счисления");
-            TreeNode treeNode2 = new TreeNode("Перевод из десятичной системы счисления в любую другую");
-            TreeNode treeNode3 = new TreeNode("Перевод из любой системы счисления в десятичную");
-            TreeNode treeNode4 = new TreeNode("Перевод из двоичной системы в систему с основанием «степень двойки»");
-            TreeNode treeNode5 = new TreeNode("Перевод из системы с основанием «степень двойки» в двоичную");
-            TreeNode treeNode6 = new TreeNode("Системы счисления.", new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode4, treeNode5 });
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
@@ -129,19 +123,6 @@
             // 
             treeView1.Location = new Point(6, 6);
             treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0_0";
-            treeNode1.Text = "Порядковый счет в различных системах счисления";
-            treeNode2.Name = "Node0_1";
-            treeNode2.Text = "Перевод из десятичной системы счисления в любую другую";
-            treeNode3.Name = "Node0_2";
-            treeNode3.Text = "Перевод из любой системы счисления в десятичную";
-            treeNode4.Name = "Node0_3";
-            treeNode4.Text = "Перевод из двоичной системы в систему с основанием «степень двойки»";
-            treeNode5.Name = "Node0_4";
-            treeNode5.Text = "Перевод из системы с основанием «степень двойки» в двоичную";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Системы счисления.";
-            treeView1.Nodes.AddRange(new TreeNode[] { treeNode6 });
             treeView1.RightToLeft = RightToLeft.No;
             treeView1.Size = new Size(206, 414);
             treeView1.TabIndex = 0;
@@ -158,7 +139,6 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Картинки";
             tabPage2.UseVisualStyleBackColor = true;
-            tabPage2.Click += tabPage2_Click;
             // 
             // tabPage3
             // 
@@ -189,6 +169,7 @@
             Name = "MainForm";
             RightToLeft = RightToLeft.No;
             Text = "MainForm";
+            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);

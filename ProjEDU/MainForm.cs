@@ -34,14 +34,26 @@ namespace ProjEDU
         {
 
         }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            XmlDocument doc = new XmlDocument();
+            doc.Load("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\TextTree.xml");
+            foreach (XmlNode node in doc.SelectNodes("//node"))
+            {
+                var treeNode = new TreeNode();
+                treeNode.Text = node.Attributes["text"].Value;
+                treeNode.Name = node.Attributes["name"].Value;
+                foreach(XmlNode child in node.ChildNodes)
+                {
+                    var childNode = new TreeNode();
+                    childNode.Text = child.Attributes["text"].Value;
+                    childNode.Name = child.Attributes["name"].Value;
+                    treeNode.Nodes.Add(childNode);
+                }
+                treeView1.Nodes.Add(treeNode);
+            }
         }
 
         private void btnTheory_Click(object sender, EventArgs e)
@@ -50,10 +62,7 @@ namespace ProjEDU
 
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void btnForward_Click(object sender, EventArgs e)
         {
@@ -128,9 +137,8 @@ namespace ProjEDU
             return "";
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
+       
 
-        }
+        
     }
 }
