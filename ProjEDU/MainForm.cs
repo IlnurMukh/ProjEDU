@@ -44,6 +44,7 @@ namespace ProjEDU
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\TextTree.xml");
+            //doc.Load("C:\\Users\\Ilnur\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\TextTree.xml");
             foreach (XmlNode node in doc.SelectNodes("//node"))
             {
                 var treeNode = new TreeNode();
