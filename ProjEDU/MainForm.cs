@@ -18,8 +18,8 @@ namespace ProjEDU
         public MainForm(string name, bool isTeacher)
         {
             InitializeComponent();
-            if(!isTeacher)
-            {   
+            if (!isTeacher)
+            {
                 editToolStripMenuItem.Enabled = false;
                 editToolStripMenuItem.Visible = false;
             }
@@ -35,7 +35,8 @@ namespace ProjEDU
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EditForm editForm = new EditForm();
+            Visible = false;
         }
         
 

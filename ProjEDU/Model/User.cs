@@ -12,5 +12,6 @@ namespace ProjEDU.Model
         public string Login { get; set; }
         public string Password { get; set; }
         public bool Teacher { get; set; } = false;
+        public DateTime? LastTest { get; set; } = null;
     }
 }
