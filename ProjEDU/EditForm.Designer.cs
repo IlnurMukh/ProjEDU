@@ -31,13 +31,14 @@
             panel1 = new Panel();
             label1 = new Label();
             comboBox1 = new ComboBox();
+            panel2 = new Panel();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Location = new Point(301, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(638, 480);
+            panel1.Size = new Size(965, 480);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -52,17 +53,26 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Теория", "Тест" });
+            comboBox1.Items.AddRange(new object[] { "Текст", "Картинки", "Видео", "Тест" });
             comboBox1.Location = new Point(12, 32);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(151, 28);
             comboBox1.TabIndex = 2;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(12, 66);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(277, 426);
+            panel2.TabIndex = 3;
             // 
             // EditForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(951, 561);
+            ClientSize = new Size(1278, 524);
+            Controls.Add(panel2);
             Controls.Add(comboBox1);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -77,5 +87,6 @@
         private Panel panel1;
         private Label label1;
         private ComboBox comboBox1;
+        private Panel panel2;
     }
 }

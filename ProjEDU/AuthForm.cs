@@ -113,7 +113,11 @@ namespace ProjEDU
                     tbLogin.Text = "";
                     tbPassword.Text = "";
                     tbConfirmPassword.Text = "";
-                    Visible = true;
+                    try{ Visible = true; }
+                    catch
+                    {
+                        // ignored
+                    }
                 }
             }
         }

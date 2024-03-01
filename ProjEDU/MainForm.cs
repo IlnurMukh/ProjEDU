@@ -18,8 +18,11 @@ namespace ProjEDU
         public MainForm(string name, bool isTeacher)
         {
             InitializeComponent();
-            if (!isTeacher)
-                editToolStripMenuItem.Enabled = false; editToolStripMenuItem.Visible = false;
+            if(!isTeacher)
+            {   
+                editToolStripMenuItem.Enabled = false;
+                editToolStripMenuItem.Visible = false;
+            }
             Text = $"Вы вошли под логином {name}";
 
 
