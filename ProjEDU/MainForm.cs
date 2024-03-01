@@ -16,7 +16,10 @@ namespace ProjEDU
         {
             InitializeComponent();
             if(!isTeacher)
-                editToolStripMenuItem.Enabled = false; editToolStripMenuItem.Visible = false;
+            {   
+                editToolStripMenuItem.Enabled = false;
+                editToolStripMenuItem.Visible = false;
+            }
             Text = $"Вы вошли под логином {name}";
             
 
