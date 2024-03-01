@@ -28,13 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            TreeNode treeNode1 = new TreeNode("Порядковый счет в различных системах счисления");
-            TreeNode treeNode2 = new TreeNode("Перевод из десятичной системы счисления в любую другую");
-            TreeNode treeNode3 = new TreeNode("Перевод из любой системы счисления в десятичную");
-            TreeNode treeNode4 = new TreeNode("Перевод из двоичной системы в систему с основанием «степень двойки»");
-            TreeNode treeNode5 = new TreeNode("Перевод из системы с основанием «степень двойки» в двоичную");
-            TreeNode treeNode6 = new TreeNode("Системы счисления.", new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode4, treeNode5 });
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
@@ -46,6 +41,7 @@
             treeView1 = new TreeView();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
+            imageList1 = new ImageList(components);
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -127,19 +123,6 @@
             // 
             treeView1.Location = new Point(6, 6);
             treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0_1";
-            treeNode1.Text = "Порядковый счет в различных системах счисления";
-            treeNode2.Name = "Node0_2";
-            treeNode2.Text = "Перевод из десятичной системы счисления в любую другую";
-            treeNode3.Name = "Node0_3";
-            treeNode3.Text = "Перевод из любой системы счисления в десятичную";
-            treeNode4.Name = "Node0_4";
-            treeNode4.Text = "Перевод из двоичной системы в систему с основанием «степень двойки»";
-            treeNode5.Name = "Node0_5";
-            treeNode5.Text = "Перевод из системы с основанием «степень двойки» в двоичную";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Системы счисления.";
-            treeView1.Nodes.AddRange(new TreeNode[] { treeNode6 });
             treeView1.RightToLeft = RightToLeft.No;
             treeView1.Size = new Size(206, 414);
             treeView1.TabIndex = 0;
@@ -147,6 +130,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.AutoScroll = true;
+            tabPage2.BackgroundImageLayout = ImageLayout.None;
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -164,18 +149,27 @@
             tabPage3.Text = "Видео";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "Image1.png");
+            imageList1.Images.SetKeyName(1, "Без названия.png");
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1296, 571);
-            Controls.Add(tabControl1);
             Controls.Add(btnForward);
             Controls.Add(menuStrip1);
+            Controls.Add(tabControl1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             RightToLeft = RightToLeft.No;
             Text = "MainForm";
+            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -201,5 +195,6 @@
         private TabPage tabPage3;
         private TreeView treeView1;
         private RichTextBox richTextBox1;
+        private ImageList imageList1;
     }
 }
