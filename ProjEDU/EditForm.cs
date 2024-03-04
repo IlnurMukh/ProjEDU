@@ -43,5 +43,27 @@ namespace ProjEDU
                 treeView1.Nodes.Add(treeNode);
             }
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("C:\\Users\\Ilnur\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\TextTree.xml");
+            bool founded = false;
+            string content = "";
+            for (int i = 0; i < doc.SelectNodes("//node").Count && !founded; i++)
+            {
+                var node = doc.SelectNodes("//node")[i];
+                for (int j = 0; j < node.ChildNodes.Count && !founded; j++)
+                {
+                    var child = node.ChildNodes[j];
+                    if (child.Attributes["name"].Value == e.Node.Name)
+                    {
+                        content = child.Attributes["content"].Value;
+                        founded = true;
+                    }
+                }
+            }
+            richTextBox1.Text = content;
+        }
     }
 }

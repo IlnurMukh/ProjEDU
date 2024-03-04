@@ -30,17 +30,23 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            btnDel1 = new Button();
+            btnAdd1 = new Button();
             richTextBox1 = new RichTextBox();
             treeView1 = new TreeView();
             tabPage2 = new TabPage();
+            btnDel2 = new Button();
+            btnAdd2 = new Button();
+            richTextBox2 = new RichTextBox();
+            treeView2 = new TreeView();
             tabPage3 = new TabPage();
+            btnDel3 = new Button();
+            btnAdd3 = new Button();
+            richTextBox3 = new RichTextBox();
+            treeView3 = new TreeView();
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
-            richTextBox2 = new RichTextBox();
-            treeView2 = new TreeView();
-            richTextBox3 = new RichTextBox();
-            treeView3 = new TreeView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -61,6 +67,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(btnDel1);
+            tabPage1.Controls.Add(btnAdd1);
             tabPage1.Controls.Add(richTextBox1);
             tabPage1.Controls.Add(treeView1);
             tabPage1.Location = new Point(4, 29);
@@ -70,6 +78,24 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Текст";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnDel1
+            // 
+            btnDel1.Location = new Point(117, 358);
+            btnDel1.Name = "btnDel1";
+            btnDel1.Size = new Size(95, 62);
+            btnDel1.TabIndex = 3;
+            btnDel1.Text = "button2";
+            btnDel1.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd1
+            // 
+            btnAdd1.Location = new Point(6, 358);
+            btnAdd1.Name = "btnAdd1";
+            btnAdd1.Size = new Size(95, 62);
+            btnAdd1.TabIndex = 2;
+            btnAdd1.Text = "button1";
+            btnAdd1.UseVisualStyleBackColor = true;
             // 
             // richTextBox1
             // 
@@ -86,11 +112,14 @@
             treeView1.RightToLeft = RightToLeft.No;
             treeView1.Size = new Size(206, 346);
             treeView1.TabIndex = 0;
+            treeView1.AfterSelect += treeView1_AfterSelect;
             // 
             // tabPage2
             // 
             tabPage2.AutoScroll = true;
             tabPage2.BackgroundImageLayout = ImageLayout.None;
+            tabPage2.Controls.Add(btnDel2);
+            tabPage2.Controls.Add(btnAdd2);
             tabPage2.Controls.Add(richTextBox2);
             tabPage2.Controls.Add(treeView2);
             tabPage2.Location = new Point(4, 29);
@@ -101,8 +130,44 @@
             tabPage2.Text = "Картинки";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnDel2
+            // 
+            btnDel2.Location = new Point(117, 358);
+            btnDel2.Name = "btnDel2";
+            btnDel2.Size = new Size(95, 62);
+            btnDel2.TabIndex = 5;
+            btnDel2.Text = "button3";
+            btnDel2.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd2
+            // 
+            btnAdd2.Location = new Point(6, 358);
+            btnAdd2.Name = "btnAdd2";
+            btnAdd2.Size = new Size(95, 62);
+            btnAdd2.TabIndex = 4;
+            btnAdd2.Text = "button4";
+            btnAdd2.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox2
+            // 
+            richTextBox2.Location = new Point(218, 6);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.Size = new Size(1040, 414);
+            richTextBox2.TabIndex = 3;
+            richTextBox2.Text = "\n";
+            // 
+            // treeView2
+            // 
+            treeView2.Location = new Point(6, 6);
+            treeView2.Name = "treeView2";
+            treeView2.RightToLeft = RightToLeft.No;
+            treeView2.Size = new Size(206, 346);
+            treeView2.TabIndex = 2;
+            // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(btnDel3);
+            tabPage3.Controls.Add(btnAdd3);
             tabPage3.Controls.Add(richTextBox3);
             tabPage3.Controls.Add(treeView3);
             tabPage3.Location = new Point(4, 29);
@@ -111,6 +176,40 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Видео";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnDel3
+            // 
+            btnDel3.Location = new Point(117, 358);
+            btnDel3.Name = "btnDel3";
+            btnDel3.Size = new Size(95, 62);
+            btnDel3.TabIndex = 5;
+            btnDel3.Text = "button5";
+            btnDel3.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd3
+            // 
+            btnAdd3.Location = new Point(6, 358);
+            btnAdd3.Name = "btnAdd3";
+            btnAdd3.Size = new Size(95, 62);
+            btnAdd3.TabIndex = 4;
+            btnAdd3.Text = "button6";
+            btnAdd3.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox3
+            // 
+            richTextBox3.Location = new Point(218, 6);
+            richTextBox3.Name = "richTextBox3";
+            richTextBox3.Size = new Size(1040, 414);
+            richTextBox3.TabIndex = 3;
+            richTextBox3.Text = "\n";
+            // 
+            // treeView3
+            // 
+            treeView3.Location = new Point(6, 6);
+            treeView3.Name = "treeView3";
+            treeView3.RightToLeft = RightToLeft.No;
+            treeView3.Size = new Size(206, 346);
+            treeView3.TabIndex = 2;
             // 
             // menuStrip1
             // 
@@ -134,38 +233,6 @@
             editToolStripMenuItem.Name = "editToolStripMenuItem";
             editToolStripMenuItem.Size = new Size(97, 24);
             editToolStripMenuItem.Text = "Сохранить";
-            // 
-            // richTextBox2
-            // 
-            richTextBox2.Location = new Point(218, 6);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(1040, 414);
-            richTextBox2.TabIndex = 3;
-            richTextBox2.Text = "\n";
-            // 
-            // treeView2
-            // 
-            treeView2.Location = new Point(6, 6);
-            treeView2.Name = "treeView2";
-            treeView2.RightToLeft = RightToLeft.No;
-            treeView2.Size = new Size(206, 346);
-            treeView2.TabIndex = 2;
-            // 
-            // richTextBox3
-            // 
-            richTextBox3.Location = new Point(218, 6);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(1040, 414);
-            richTextBox3.TabIndex = 3;
-            richTextBox3.Text = "\n";
-            // 
-            // treeView3
-            // 
-            treeView3.Location = new Point(6, 6);
-            treeView3.Name = "treeView3";
-            treeView3.RightToLeft = RightToLeft.No;
-            treeView3.Size = new Size(206, 346);
-            treeView3.TabIndex = 2;
             // 
             // EditForm
             // 
@@ -202,5 +269,11 @@
         private TreeView treeView2;
         private RichTextBox richTextBox3;
         private TreeView treeView3;
+        private Button btnDel1;
+        private Button btnAdd1;
+        private Button btnDel2;
+        private Button btnAdd2;
+        private Button btnDel3;
+        private Button btnAdd3;
     }
 }
