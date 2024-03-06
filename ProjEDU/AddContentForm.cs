@@ -12,19 +12,17 @@ namespace ProjEDU
 {
     public partial class AddContentForm : Form
     {
-        private string _title = "title";
-        private string _url = "url";
-        public AddContentForm(string title, string url)
+        private readonly EditForm _form;
+        public AddContentForm(EditForm form)
         {
             InitializeComponent();
-            title = _title;
-            url = _url;
+            _form = form;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            _title = tbTitle.Text;
-            _url = tbURL.Text;
+            _form.ContentTitle = tbTitle.Text;
+            _form.ContentURL = tbURL.Text;
         }
     }
 }

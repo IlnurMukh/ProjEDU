@@ -35,6 +35,7 @@ namespace ProjEDU
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditForm editForm = new EditForm();
+            editForm.ShowDialog();
             Visible = false;
         }
         
