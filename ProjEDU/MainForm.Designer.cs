@@ -40,11 +40,17 @@
             richTextBox1 = new RichTextBox();
             treeView1 = new TreeView();
             tabPage2 = new TabPage();
+            richTextBox2 = new RichTextBox();
+            treeView2 = new TreeView();
             tabPage3 = new TabPage();
+            richTextBox3 = new RichTextBox();
+            treeView3 = new TreeView();
             imageList1 = new ImageList(components);
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -115,6 +121,7 @@
             // 
             richTextBox1.Location = new Point(218, 6);
             richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(1040, 414);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "\n";
@@ -132,6 +139,8 @@
             // 
             tabPage2.AutoScroll = true;
             tabPage2.BackgroundImageLayout = ImageLayout.None;
+            tabPage2.Controls.Add(richTextBox2);
+            tabPage2.Controls.Add(treeView2);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -140,14 +149,50 @@
             tabPage2.Text = "Картинки";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // richTextBox2
+            // 
+            richTextBox2.Location = new Point(218, 6);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.ReadOnly = true;
+            richTextBox2.Size = new Size(1040, 414);
+            richTextBox2.TabIndex = 3;
+            richTextBox2.Text = "\n";
+            // 
+            // treeView2
+            // 
+            treeView2.Location = new Point(6, 6);
+            treeView2.Name = "treeView2";
+            treeView2.RightToLeft = RightToLeft.No;
+            treeView2.Size = new Size(206, 414);
+            treeView2.TabIndex = 2;
+            // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(richTextBox3);
+            tabPage3.Controls.Add(treeView3);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1264, 426);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Видео";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox3
+            // 
+            richTextBox3.Location = new Point(218, 6);
+            richTextBox3.Name = "richTextBox3";
+            richTextBox3.ReadOnly = true;
+            richTextBox3.Size = new Size(1040, 414);
+            richTextBox3.TabIndex = 3;
+            richTextBox3.Text = "\n";
+            // 
+            // treeView3
+            // 
+            treeView3.Location = new Point(6, 6);
+            treeView3.Name = "treeView3";
+            treeView3.RightToLeft = RightToLeft.No;
+            treeView3.Size = new Size(206, 414);
+            treeView3.TabIndex = 2;
             // 
             // imageList1
             // 
@@ -174,6 +219,8 @@
             menuStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +243,9 @@
         private TreeView treeView1;
         private RichTextBox richTextBox1;
         private ImageList imageList1;
+        private RichTextBox richTextBox2;
+        private TreeView treeView2;
+        private RichTextBox richTextBox3;
+        private TreeView treeView3;
     }
 }

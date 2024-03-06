@@ -63,57 +63,65 @@ namespace ProjEDU
                     }
                 }
             }
-            if (_newAcc && tbPassword.Text == tbConfirmPassword.Text)
+            else
             {
-                if (tbLogin.Text.Length < 6)
+                if (_newAcc && tbPassword.Text == tbConfirmPassword.Text)
                 {
-                    MessageBox.Show("Некорректная длина логина", "Ошибка",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    //TODO Проверить логин
-                }
-                else
-                {
-                    using (UserContext dbContext = new UserContext())
+                    if (tbLogin.Text.Length < 6)
                     {
-                        List<User> dbUsers = dbContext.Users.ToList();
-                        if (dbUsers.All(u => u.Login != tbLogin.Text))
+                        MessageBox.Show("Некорректная длина логина", "Ошибка",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        //TODO Проверить логин
+                    }
+                    else
+                    {
+                        using (UserContext dbContext = new UserContext())
                         {
-                            dbContext.Users.Add(new User() { Login = tbLogin.Text, Password = tbPassword.Text });
-                            dbContext.SaveChanges();
-                            _successful = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                            tbLogin.Text = "";
-                            tbPassword.Text = "";
-                            tbConfirmPassword.Text = "";
+                            List<User> dbUsers = dbContext.Users.ToList();
+                            if (dbUsers.All(u => u.Login != tbLogin.Text))
+                            {
+                                dbContext.Users.Add(new User() { Login = tbLogin.Text, Password = tbPassword.Text });
+                                dbContext.SaveChanges();
+                                _successful = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                                tbLogin.Text = "";
+                                tbPassword.Text = "";
+                                tbConfirmPassword.Text = "";
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                tbPassword.Text = "";
-                tbConfirmPassword.Text = "";
+                else
+                {
+                    MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    tbPassword.Text = "";
+                    tbConfirmPassword.Text = "";
+                }
             }
 
             if (_successful)
             {
+                //TODO Надо пошаманить ещё
                 MainForm mainForm = new MainForm(tbLogin.Text, _isTeacher);
-                mainForm.Closed += (_, _) => this.Close();
+                //mainForm.Closed += (_, _) => this.Close();
                 this.Visible = false;
                 if (mainForm.ShowDialog() == DialogResult.OK)
                 {
                     tbLogin.Text = "";
                     tbPassword.Text = "";
                     tbConfirmPassword.Text = "";
-                    Visible = true;
+                    try{ Visible = true; }
+                    catch
+                    {
+                        // ignored
+                    }
                 }
             }
         }

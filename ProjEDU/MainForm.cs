@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using ProjEDU.Model;
 
 namespace ProjEDU
 {
@@ -19,10 +20,11 @@ namespace ProjEDU
         {
             InitializeComponent();
             if (!isTeacher)
-                editToolStripMenuItem.Enabled = false; editToolStripMenuItem.Visible = false;
+            {
+                editToolStripMenuItem.Enabled = false;
+                editToolStripMenuItem.Visible = false;
+            }
             Text = $"Вы вошли под логином {name}";
-
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,14 +34,21 @@ namespace ProjEDU
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EditForm editForm = new EditForm();
+            editForm.ShowDialog();
+            Visible = false;
         }
         
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\TextTree.xml");
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Text");
+                doc = Content.ToXml(contentFirst.XMLText);
+            }
             foreach (XmlNode node in doc.SelectNodes("//node"))
             {
                 var treeNode = new TreeNode();
@@ -59,86 +68,40 @@ namespace ProjEDU
         private void btnTheory_Click(object sender, EventArgs e)
         {
             pnlTheoryTest.Visible = false;
-
         }
 
        
 
         private void btnForward_Click(object sender, EventArgs e)
         {
-            //XmlDocument doc = new XmlDocument();
-            //XmlElement root = doc.CreateElement("tree");
-            //doc.AppendChild(root);
-
-            //for (int i = 0; i < treeView1.Nodes.Count; i++)
-            //{
-            //    XmlElement element = doc.CreateElement("node");
-            //    element.SetAttribute("text", treeView1.Nodes[i].Text);
-            //    element.SetAttribute("name", treeView1.Nodes[i].Name);
-            //    root.AppendChild(element);
-            //    for (int j = 0; j < treeView1.Nodes[i].Nodes.Count; j++)
-            //    {
-            //        XmlElement childElement = doc.CreateElement("node");
-            //        childElement.SetAttribute("text", treeView1.Nodes[i].Nodes[j].Text);
-            //        childElement.SetAttribute("name", treeView1.Nodes[i].Nodes[j].Name);
-            //        element.AppendChild(childElement);
-            //    }
-            //}
-
-            //doc.Save("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\TextTree.xml");
-
-            //string filePath = "C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\Images\\Image1.png";
-
-            //XmlDocument xmlDocument = new XmlDocument();
-
-            //XmlElement rootElement = xmlDocument.CreateElement("image");
-            //xmlDocument.AppendChild(rootElement);
-
-            //XmlElement imageElement = xmlDocument.CreateElement("data");
-            //imageElement.SetAttribute("type", "image/png");
-            //imageElement.InnerText = File.ReadAllText(filePath);
-            //rootElement.AppendChild(imageElement);
-
-            //xmlDocument.Save("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\Image.xml");
-
-
-
-            XDocument doc = XDocument.Load("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\XMLFiles\\Image.xml");
-            var imageElement = doc.XPathSelectElement("//image/data");
-            if (imageElement != null)
-            {
-                byte[] imageData = Convert.FromBase64String(imageElement.Value);
-                using (var ms = new MemoryStream(imageData, 0, imageData.Length))
-                {
-                    ms.Write(imageData, 0, imageData.Length);
-                    var bitmap = (Bitmap)Image.FromStream(ms);
-                    bitmap.Save("C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\Images\\NewImage.jpg");
-                }
-            }
-
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
-            richTextBox1.Text = TakeText($"{e.Node.Name}.txt");
-        }
-        private string TakeText(string FileName)
-        {
-            string list;
-            if (File.Exists($"C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\Texts\\{FileName}"))
+            XmlDocument doc = new XmlDocument();
+            using (ContentContext contentContext = new ContentContext())
             {
-                using (StreamReader sr = new StreamReader($"C:\\Users\\Vostro\\source\\repos\\ProjEDU\\ProjEDU\\Texts\\{FileName}"))
-                {
-                    list = sr.ReadToEnd();
-                }
-                return list;
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Text");
+                doc = Content.ToXml(contentFirst.XMLText);
             }
-            return "";
+            bool founded = false;
+            string content = "";
+            for (int i = 0; i < doc.SelectNodes("//node").Count && !founded; i++)
+            {
+                var node = doc.SelectNodes("//node")[i];
+                for (int j = 0; j < node.ChildNodes.Count && !founded; j++)
+                {
+                    var child = node.ChildNodes[j];
+                    if (child.Attributes["name"].Value == e.Node.Name)
+                    {
+                        content = child.Attributes["content"].Value;
+                        founded = true;
+                    }
+                }
+            }
+            richTextBox1.Text = content;
         }
-
-       
-
-        
     }
 }
