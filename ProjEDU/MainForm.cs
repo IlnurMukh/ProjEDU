@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,7 +39,7 @@ namespace ProjEDU
             editForm.ShowDialog();
             Visible = false;
         }
-        
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -54,7 +55,7 @@ namespace ProjEDU
                 var treeNode = new TreeNode();
                 treeNode.Text = node.Attributes["text"].Value;
                 treeNode.Name = node.Attributes["name"].Value;
-                foreach(XmlNode child in node.ChildNodes)
+                foreach (XmlNode child in node.ChildNodes)
                 {
                     var childNode = new TreeNode();
                     childNode.Text = child.Attributes["text"].Value;
@@ -63,18 +64,48 @@ namespace ProjEDU
                 }
                 treeView1.Nodes.Add(treeNode);
             }
-        }
 
-        private void btnTheory_Click(object sender, EventArgs e)
-        {
-            pnlTheoryTest.Visible = false;
-        }
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Image");
+                doc = Content.ToXml(contentFirst.XMLText);
+            }
+            foreach (XmlNode node in doc.SelectNodes("//node"))
+            {
+                var treeNode = new TreeNode();
+                treeNode.Text = node.Attributes["title"].Value;
+                treeNode.Name = node.Attributes["name"].Value;
+                foreach (XmlNode child in node.ChildNodes)
+                {
+                    var childNode = new TreeNode();
+                    childNode.Text = child.Attributes["title"].Value;
+                    childNode.Name = child.Attributes["name"].Value;
+                    treeNode.Nodes.Add(childNode);
+                }
+                treeView2.Nodes.Add(treeNode);
+            }
 
-       
-
-        private void btnForward_Click(object sender, EventArgs e)
-        {
-            
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Video");
+                doc = Content.ToXml(contentFirst.XMLText);
+            }
+            foreach (XmlNode node in doc.SelectNodes("//node"))
+            {
+                var treeNode = new TreeNode();
+                treeNode.Text = node.Attributes["title"].Value;
+                treeNode.Name = node.Attributes["name"].Value;
+                foreach (XmlNode child in node.ChildNodes)
+                {
+                    var childNode = new TreeNode();
+                    childNode.Text = child.Attributes["title"].Value;
+                    childNode.Name = child.Attributes["name"].Value;
+                    treeNode.Nodes.Add(childNode);
+                }
+                treeView3.Nodes.Add(treeNode);
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -102,6 +133,58 @@ namespace ProjEDU
                 }
             }
             richTextBox1.Text = content;
+        }
+
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            XmlDocument doc = new XmlDocument();
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Image");
+                doc = Content.ToXml(contentFirst.XMLText);
+            }
+            bool founded = false;
+            string url = "";
+            for (int i = 0; i < doc.SelectNodes("//node").Count && !founded; i++)
+            {
+                var node = doc.SelectNodes("//node")[i];
+                if (node.Attributes["name"].Value == e.Node.Name)
+                {
+                    url = node.Attributes["url"].Value;
+                    founded = true;
+                }
+            }
+
+            ProcessStartInfo processStartInfo = new ProcessStartInfo(url);
+            processStartInfo.UseShellExecute = true;
+            Process.Start(processStartInfo);
+        }
+
+        private void treeView3_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            XmlDocument doc = new XmlDocument();
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Video");
+                doc = Content.ToXml(contentFirst.XMLText);
+            }
+            bool founded = false;
+            string url = "";
+            for (int i = 0; i < doc.SelectNodes("//node").Count && !founded; i++)
+            {
+                var node = doc.SelectNodes("//node")[i];
+                if (node.Attributes["name"].Value == e.Node.Name)
+                {
+                    url = node.Attributes["url"].Value;
+                    founded = true;
+                }
+            }
+
+            ProcessStartInfo processStartInfo = new ProcessStartInfo(url);
+            processStartInfo.UseShellExecute = true;
+            Process.Start(processStartInfo);
         }
     }
 }

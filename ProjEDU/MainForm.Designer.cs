@@ -34,7 +34,6 @@
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             testToolStripMenuItem = new ToolStripMenuItem();
-            btnForward = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             richTextBox1 = new RichTextBox();
@@ -82,17 +81,6 @@
             // 
             testToolStripMenuItem.Name = "testToolStripMenuItem";
             testToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // btnForward
-            // 
-            btnForward.BackgroundImage = (Image)resources.GetObject("btnForward.BackgroundImage");
-            btnForward.BackgroundImageLayout = ImageLayout.Stretch;
-            btnForward.Location = new Point(1197, 496);
-            btnForward.Name = "btnForward";
-            btnForward.Size = new Size(87, 63);
-            btnForward.TabIndex = 2;
-            btnForward.UseVisualStyleBackColor = true;
-            btnForward.Click += btnForward_Click;
             // 
             // tabControl1
             // 
@@ -165,6 +153,7 @@
             treeView2.RightToLeft = RightToLeft.No;
             treeView2.Size = new Size(206, 414);
             treeView2.TabIndex = 2;
+            treeView2.AfterSelect += treeView2_AfterSelect;
             // 
             // tabPage3
             // 
@@ -193,6 +182,7 @@
             treeView3.RightToLeft = RightToLeft.No;
             treeView3.Size = new Size(206, 414);
             treeView3.TabIndex = 2;
+            treeView3.AfterSelect += treeView3_AfterSelect;
             // 
             // imageList1
             // 
@@ -207,7 +197,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1296, 571);
-            Controls.Add(btnForward);
             Controls.Add(menuStrip1);
             Controls.Add(tabControl1);
             MainMenuStrip = menuStrip1;
@@ -235,7 +224,6 @@
         private Panel pnlTheoryTest;
         private Button btnTheory;
         private Button btnTest;
-        private Button btnForward;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
