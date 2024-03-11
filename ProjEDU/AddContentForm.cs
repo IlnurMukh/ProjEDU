@@ -19,6 +19,14 @@ namespace ProjEDU
             _form = form;
         }
 
+        public AddContentForm(EditForm form, string title, string url)
+        {
+            InitializeComponent();
+            _form = form;
+            tbTitle.Text = title;
+            tbURL.Text = url;
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             _form.ContentTitle = tbTitle.Text;

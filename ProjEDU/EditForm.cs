@@ -225,7 +225,25 @@ namespace ProjEDU
 
         private void btnEdit2_Click(object sender, EventArgs e)
         {
-
+            TreeNode node = treeView2.SelectedNode;
+            XmlDocument doc = new XmlDocument();
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Image");
+                doc = Content.ToXml(contentFirst.XMLText);
+                var selected = doc.SelectSingleNode($"//node[@name = '{node.Name}']");
+                AddContentForm editContentForm =
+                    new AddContentForm(this, selected["title"].Value, selected["url"].Value);
+                if (editContentForm.ShowDialog() == DialogResult.OK)
+                {
+                    selected["title"].Value = ContentTitle;
+                    selected["url"].Value = ContentURL;
+                    contentFirst.XMLText = doc.OuterXml;
+                    contentContext.SaveChanges();
+                }
+            }
+            UpdateTrees();
         }
 
 
@@ -233,10 +251,7 @@ namespace ProjEDU
 
         #region VideoTab
 
-        private void treeView3_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
+        private void treeView3_AfterSelect(object sender, TreeViewEventArgs e) { }
         private void btnAdd3_Click(object sender, EventArgs e)
         {
             TreeNodeCollection tns = treeView2.Nodes;
@@ -286,7 +301,25 @@ namespace ProjEDU
 
         private void btnEdit3_Click(object sender, EventArgs e)
         {
-
+            TreeNode node = treeView3.SelectedNode;
+            XmlDocument doc = new XmlDocument();
+            using (ContentContext contentContext = new ContentContext())
+            {
+                List<Content> contents = contentContext.Contents.ToList();
+                Content contentFirst = contents.First(c => c.Type == "Video");
+                doc = Content.ToXml(contentFirst.XMLText);
+                var selected = doc.SelectSingleNode($"//node[@name = '{node.Name}']");
+                AddContentForm editContentForm =
+                    new AddContentForm(this, selected["title"].Value, selected["url"].Value);
+                if (editContentForm.ShowDialog() == DialogResult.OK)
+                {
+                    selected["title"].Value = ContentTitle;
+                    selected["url"].Value = ContentURL;
+                    contentFirst.XMLText = doc.OuterXml;
+                    contentContext.SaveChanges();
+                }
+            }
+            UpdateTrees();
         }
 
 
