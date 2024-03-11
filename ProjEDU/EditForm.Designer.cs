@@ -37,14 +37,12 @@
             richTextBox1 = new RichTextBox();
             treeView1 = new TreeView();
             tabPage2 = new TabPage();
-            btnSave2 = new Button();
             btnEdit2 = new Button();
             btnDel2 = new Button();
             btnAdd2 = new Button();
             richTextBox2 = new RichTextBox();
             treeView2 = new TreeView();
             tabPage3 = new TabPage();
-            btnSave3 = new Button();
             btnEdit3 = new Button();
             btnDel3 = new Button();
             btnAdd3 = new Button();
@@ -148,7 +146,6 @@
             // 
             tabPage2.AutoScroll = true;
             tabPage2.BackgroundImageLayout = ImageLayout.None;
-            tabPage2.Controls.Add(btnSave2);
             tabPage2.Controls.Add(btnEdit2);
             tabPage2.Controls.Add(btnDel2);
             tabPage2.Controls.Add(btnAdd2);
@@ -162,16 +159,6 @@
             tabPage2.Text = "Картинки";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnSave2
-            // 
-            btnSave2.Location = new Point(117, 355);
-            btnSave2.Name = "btnSave2";
-            btnSave2.Size = new Size(95, 62);
-            btnSave2.TabIndex = 7;
-            btnSave2.Text = "Сохранить";
-            btnSave2.UseVisualStyleBackColor = true;
-            btnSave2.Click += btnSave2_Click;
-            // 
             // btnEdit2
             // 
             btnEdit2.Location = new Point(6, 355);
@@ -184,7 +171,7 @@
             // 
             // btnDel2
             // 
-            btnDel2.Location = new Point(117, 287);
+            btnDel2.Location = new Point(117, 355);
             btnDel2.Name = "btnDel2";
             btnDel2.Size = new Size(95, 62);
             btnDel2.TabIndex = 5;
@@ -196,7 +183,7 @@
             // 
             btnAdd2.Location = new Point(6, 287);
             btnAdd2.Name = "btnAdd2";
-            btnAdd2.Size = new Size(95, 62);
+            btnAdd2.Size = new Size(206, 62);
             btnAdd2.TabIndex = 4;
             btnAdd2.Text = "Добавить";
             btnAdd2.UseVisualStyleBackColor = true;
@@ -221,7 +208,6 @@
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(btnSave3);
             tabPage3.Controls.Add(btnEdit3);
             tabPage3.Controls.Add(btnDel3);
             tabPage3.Controls.Add(btnAdd3);
@@ -233,16 +219,6 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Видео";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnSave3
-            // 
-            btnSave3.Location = new Point(117, 355);
-            btnSave3.Name = "btnSave3";
-            btnSave3.Size = new Size(95, 62);
-            btnSave3.TabIndex = 7;
-            btnSave3.Text = "Сохранить";
-            btnSave3.UseVisualStyleBackColor = true;
-            btnSave3.Click += btnSave3_Click;
             // 
             // btnEdit3
             // 
@@ -256,7 +232,7 @@
             // 
             // btnDel3
             // 
-            btnDel3.Location = new Point(117, 287);
+            btnDel3.Location = new Point(117, 355);
             btnDel3.Name = "btnDel3";
             btnDel3.Size = new Size(95, 62);
             btnDel3.TabIndex = 5;
@@ -268,7 +244,7 @@
             // 
             btnAdd3.Location = new Point(6, 287);
             btnAdd3.Name = "btnAdd3";
-            btnAdd3.Size = new Size(95, 62);
+            btnAdd3.Size = new Size(206, 62);
             btnAdd3.TabIndex = 4;
             btnAdd3.Text = "Добавить";
             btnAdd3.UseVisualStyleBackColor = true;
@@ -357,9 +333,7 @@
         private Button btnAdd3;
         private Button btnSave1;
         private Button btnAddChild1;
-        private Button btnSave2;
         private Button btnEdit2;
-        private Button btnSave3;
         private Button btnEdit3;
     }
 }
