@@ -45,6 +45,7 @@
             richTextBox3 = new RichTextBox();
             treeView3 = new TreeView();
             imageList1 = new ImageList(components);
+            tabPage4 = new TabPage();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -87,7 +88,9 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(12, 31);
+            tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1272, 459);
@@ -192,6 +195,15 @@
             imageList1.Images.SetKeyName(0, "Image1.png");
             imageList1.Images.SetKeyName(1, "Без названия.png");
             // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1264, 426);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Тест";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -235,5 +247,6 @@
         private TreeView treeView2;
         private RichTextBox richTextBox3;
         private TreeView treeView3;
+        private TabPage tabPage4;
     }
 }
