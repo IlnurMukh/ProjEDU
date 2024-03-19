@@ -1,0 +1,104 @@
+﻿<test>
+	<question id = "1" type = "1" qtext ="Чему равно основание системы счисления?">
+		<ansvar text = "Позиции чисел в системе счисления" id ="1"/>
+		<ansvar text = "Количеству используемых цифр в системе счисления" id ="2"/>
+		<ansvar text = "Величина цифры от позиции в записи числа" id ="3"/>
+		<ansvar text = "Какой-то ответ" id ="4"/>
+		<correctanswer id ="2"/>
+	</question>
+	
+	<question id = "2" type = "2" qtext ="">
+		<ansvar text = "" id ="1"/>
+		<ansvar text = "" id ="2"/>
+		<ansvar text = "" id ="3"/>
+		<ansvar text = "" id ="4"/>
+		<correctanswer id ="1"/>
+		<correctanswer id ="2"/>
+	</question>
+	
+	<question id = "3" type = "3" qtext ="" correctanswer =""/>
+
+	<question id = "4" type = "4" qtext ="">
+		<ansvar1 text = "" id ="1"/>
+		<ansvar1 text = "" id ="2"/>
+		<ansvar1 text = "" id ="3"/>
+		<ansvar1 text = "" id ="4"/>
+		<ansvar2 text = "" id ="1"/>
+		<ansvar2 text = "" id ="2"/>
+		<ansvar2 text = "" id ="3"/>
+		<ansvar2 text = "" id ="4"/>
+		<correctanswerpair id1 ="1" id2 ="1"/>
+		<correctanswerpair id1 ="2" id2 ="2"/>
+		<correctanswerpair id1 ="3" id2 ="3"/>
+		<correctanswerpair id1 ="4" id2 ="4"/>
+	</question>
+
+	<question
+	id = "5" type = "1" qtext ="">
+		<ansvar text = "" id ="1"/>
+		<ansvar text = "" id ="2"/>
+		<ansvar text = "" id ="3"/>
+		<ansvar text = "" id ="4"/>
+		<correctanswer id ="1"/>
+	</question>
+
+	<question id = "6" type = "2" qtext ="">
+		<ansvar text = "" id ="1"/>
+		<ansvar text = "" id ="2"/>
+		<ansvar text = "" id ="3"/>
+		<ansvar text = "" id ="4"/>
+		<correctanswer id ="1"/>
+		<correctanswer id ="2"/>
+	</question>
+
+	<question id = "7" type = "3" qtext ="" correctanswer =""/>
+
+	<question id = "8" type = "4" qtext ="">
+		<ansvar1 text = "" id ="1"/>
+		<ansvar1 text = "" id ="2"/>
+		<ansvar1 text = "" id ="3"/>
+		<ansvar1 text = "" id ="4"/>
+		<ansvar2 text = "" id ="1"/>
+		<ansvar2 text = "" id ="2"/>
+		<ansvar2 text = "" id ="3"/>
+		<ansvar2 text = "" id ="4"/>
+		<correctanswerpair id1 ="1" id2 ="1"/>
+		<correctanswerpair id1 ="2" id2 ="2"/>
+		<correctanswerpair id1 ="3" id2 ="3"/>
+		<correctanswerpair id1 ="4" id2 ="4"/>
+	</question>
+<question
+	id = "9" type = "1" qtext ="">
+		<ansvar text = "" id ="1"/>
+		<ansvar text = "" id ="2"/>
+		<ansvar text = "" id ="3"/>
+		<ansvar text = "" id ="4"/>
+		<correctanswer id ="1"/>
+	</question>
+
+	<question id = "10" type = "2" qtext ="">
+		<ansvar text = "" id ="1"/>
+		<ansvar text = "" id ="2"/>
+		<ansvar text = "" id ="3"/>
+		<ansvar text = "" id ="4"/>
+		<correctanswer id ="1"/>
+		<correctanswer id ="2"/>
+	</question>
+
+	<question id = "11" type = "3" qtext ="" correctanswer =""/>
+
+	<question id = "12" type = "4" qtext ="">
+		<ansvar1 text = "" id ="1"/>
+		<ansvar1 text = "" id ="2"/>
+		<ansvar1 text = "" id ="3"/>
+		<ansvar1 text = "" id ="4"/>
+		<ansvar2 text = "" id ="1"/>
+		<ansvar2 text = "" id ="2"/>
+		<ansvar2 text = "" id ="3"/>
+		<ansvar2 text = "" id ="4"/>
+		<correctanswerpair id1 ="1" id2 ="1"/>
+		<correctanswerpair id1 ="2" id2 ="2"/>
+		<correctanswerpair id1 ="3" id2 ="3"/>
+		<correctanswerpair id1 ="4" id2 ="4"/>
+	</question>
+</test>
