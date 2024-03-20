@@ -51,6 +51,7 @@
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
+            tabPage4 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -63,6 +64,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(3, 33);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -290,6 +292,15 @@
             editToolStripMenuItem.Size = new Size(97, 24);
             editToolStripMenuItem.Text = "Сохранить";
             // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1264, 426);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Тест";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
             // EditForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -335,5 +346,6 @@
         private Button btnAddChild1;
         private Button btnEdit2;
         private Button btnEdit3;
+        private TabPage tabPage4;
     }
 }

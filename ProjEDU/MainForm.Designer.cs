@@ -90,6 +90,7 @@
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(12, 31);
+            tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1272, 459);
@@ -214,6 +215,15 @@
             treeView4.Size = new Size(206, 414);
             treeView4.TabIndex = 3;
             treeView4.AfterSelect += treeView4_AfterSelect;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1264, 426);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Тест";
+            tabPage4.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
