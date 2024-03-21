@@ -33,23 +33,23 @@
             editToolStripMenuItem = new ToolStripMenuItem();
             testToolStripMenuItem = new ToolStripMenuItem();
             tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            richTextBox1 = new RichTextBox();
+            treeView1 = new TreeView();
             tabPage2 = new TabPage();
             richTextBox2 = new RichTextBox();
             treeView2 = new TreeView();
             tabPage3 = new TabPage();
             richTextBox3 = new RichTextBox();
             treeView3 = new TreeView();
-            tabPage1 = new TabPage();
-            richTextBox1 = new RichTextBox();
-            treeView1 = new TreeView();
             tabPage4 = new TabPage();
             button1 = new Button();
             treeView4 = new TreeView();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
-            tabPage1.SuspendLayout();
             tabPage4.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,6 +95,36 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1272, 459);
             tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(richTextBox1);
+            tabPage1.Controls.Add(treeView1);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1264, 426);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Текст";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(218, 6);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(1040, 414);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "\n";
+            // 
+            // treeView1
+            // 
+            treeView1.Location = new Point(6, 6);
+            treeView1.Name = "treeView1";
+            treeView1.RightToLeft = RightToLeft.No;
+            treeView1.Size = new Size(206, 414);
+            treeView1.TabIndex = 0;
+            treeView1.AfterSelect += treeView1_AfterSelect;
             // 
             // tabPage2
             // 
@@ -157,36 +187,6 @@
             treeView3.TabIndex = 2;
             treeView3.AfterSelect += treeView3_AfterSelect;
             // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(richTextBox1);
-            tabPage1.Controls.Add(treeView1);
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1264, 426);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Текст";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(218, 6);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(1040, 414);
-            richTextBox1.TabIndex = 1;
-            richTextBox1.Text = "\n";
-            // 
-            // treeView1
-            // 
-            treeView1.Location = new Point(6, 6);
-            treeView1.Name = "treeView1";
-            treeView1.RightToLeft = RightToLeft.No;
-            treeView1.Size = new Size(206, 414);
-            treeView1.TabIndex = 0;
-            treeView1.AfterSelect += treeView1_AfterSelect;
-            // 
             // tabPage4
             // 
             tabPage4.Controls.Add(button1);
@@ -216,15 +216,6 @@
             treeView4.TabIndex = 3;
             treeView4.AfterSelect += treeView4_AfterSelect;
             // 
-            // tabPage4
-            // 
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1264, 426);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Тест";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -240,9 +231,9 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
             tabPage4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
