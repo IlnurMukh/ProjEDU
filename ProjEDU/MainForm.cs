@@ -19,6 +19,9 @@ namespace ProjEDU
     public partial class MainForm : Form
     {
         Panel[] panelList;
+        private Panel currentPanel;
+        private int currentQuestionType = 0;
+        XmlElement currentQuestion;
         public MainForm(string name, bool isTeacher)
         {
             InitializeComponent();
@@ -224,16 +227,16 @@ namespace ProjEDU
                 doc = Content.ToXml(contentFirst.XMLText);
             }
             XmlElement test = doc.DocumentElement;
-            if(test != null)
+            if (test != null)
             {
-                
+
                 foreach (XmlElement question in test)
                 {
                     if (question.Attributes["id"].Value == e.Node.Name)
                     {
-                        // Машли? Нормально шли, тимэ
+                        currentQuestion = question;
+                        currentQuestionType = int.Parse(question.Attributes["type"].Value);
                         SwitchPanels(panelList[int.Parse(e.Node.Name)]);
-                        // Хотя в целом предложения по оптимизации принимаются
                     }
                 }
             }
@@ -260,22 +263,27 @@ namespace ProjEDU
                 switch (question.Attributes["type"].Value)
                 {
                     case "1":
-                    {
-                            LoadPanelType1(panelTest, question);
-                    } break;
-                    case "2":
-                    {
-                            LoadPanelType2(panelTest, question);
 
-                    } break;
+                        {
+                            LoadPanelType1(panelTest, question);
+                        }
+                        break;
+                    case "2":
+                        {
+                            LoadPanelType2(panelTest, question);
+                        }
+                        break;
                     case "3":
-                    {
+                        {
                             LoadPanelType3(panelTest, question);
-                    } break;
+                        }
+                        break;
                     case "4":
-                    {
+                        {
                             LoadPanelType4(panelTest, question);
-                    } break;
+                        }
+                        break;
+
                 }
             }
         }
@@ -284,7 +292,7 @@ namespace ProjEDU
         {
             foreach (var panel in panelList)
             {
-                if(panel != null)
+                if (panel != null)
                 {
                     if (foundPanel != panel)
                     {
@@ -295,6 +303,7 @@ namespace ProjEDU
                     {
                         panel.Visible = true;
                         panel.Enabled = true;
+                        currentPanel = panel;
                     }
                 }
             }
@@ -440,14 +449,14 @@ namespace ProjEDU
                 }
             }
         }
-        private void LoadPanelType3(Panel panelTest, XmlElement question) 
+        private void LoadPanelType3(Panel panelTest, XmlElement question)
         {
             TextBox textBox1 = new TextBox();
             textBox1.Location = new Point(17, 100);
             textBox1.Size = new Size(200, 27);
             textBox1.TabIndex = 4;
             panelTest.Controls.Add(textBox1);
-        } 
+        }
         private void LoadPanelType4(Panel panelTest, XmlElement question)
         {
             Label label1 = new Label();
@@ -459,9 +468,13 @@ namespace ProjEDU
             Label label7 = new Label();
             Label label8 = new Label();
             NumericUpDown numericUpDown1 = new NumericUpDown();
+            numericUpDown1.Name = "1";
             NumericUpDown numericUpDown2 = new NumericUpDown();
+            numericUpDown2.Name = "2";
             NumericUpDown numericUpDown3 = new NumericUpDown();
+            numericUpDown3.Name = "3";
             NumericUpDown numericUpDown4 = new NumericUpDown();
+            numericUpDown4.Name = "4";
             label1.AutoSize = true;
             label1.Location = new Point(3, 0);
             label1.Name = "1";
@@ -495,8 +508,8 @@ namespace ProjEDU
             label4.Size = new Size(50, 20);
             label4.TabIndex = 3;
             label4.Text = "label4";
-           
-           
+
+
             // 
             // label5
             // 
@@ -539,7 +552,7 @@ namespace ProjEDU
             numericUpDown1.Location = new Point(204, 3);
             numericUpDown1.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Name = "1";
             numericUpDown1.Size = new Size(34, 27);
             numericUpDown1.TabIndex = 9;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -549,7 +562,7 @@ namespace ProjEDU
             numericUpDown2.Location = new Point(204, 58);
             numericUpDown2.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             numericUpDown2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Name = "2";
             numericUpDown2.Size = new Size(34, 27);
             numericUpDown2.TabIndex = 10;
             numericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -559,7 +572,7 @@ namespace ProjEDU
             numericUpDown3.Location = new Point(204, 113);
             numericUpDown3.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             numericUpDown3.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Name = "3";
             numericUpDown3.Size = new Size(34, 27);
             numericUpDown3.TabIndex = 11;
             numericUpDown3.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -569,7 +582,7 @@ namespace ProjEDU
             numericUpDown4.Location = new Point(204, 168);
             numericUpDown4.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             numericUpDown4.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Name = "4";
             numericUpDown4.Size = new Size(34, 27);
             numericUpDown4.TabIndex = 12;
             numericUpDown4.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -628,8 +641,147 @@ namespace ProjEDU
                     }
                 }
             }
-        } 
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            switch (currentQuestionType)
+            {
+                case 1:
+                {
+                    foreach (Control control in currentPanel.Controls)
+                    {
+                        if (control is TableLayoutPanel tableLayoutPanel)
+                        {
+                            XmlElement correctAnswer = null;
+                            foreach (XmlElement child in currentQuestion)
+                            {
+                                if(child.Name == "correctanswer")
+                                    correctAnswer = child;
+                            }
+                            foreach (Control tlpControl in tableLayoutPanel.Controls)
+                            {
+                                if (tlpControl is RadioButton { Checked: true } rButton)
+                                {
+                                    if (rButton.Name == correctAnswer.Attributes["id"].Value)
+                                    {
+                                        //TODO Dop-dores, malades
+                                        MessageBox.Show("good");
+                                    }
+                                    else
+                                    {
+                                            // TODO Dores tugel, ebantяy
+                                            MessageBox.Show("bad");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }break;
+                case 2:
+                {
+                    foreach (Control control in currentPanel.Controls)
+                    {
+                        if (control is TableLayoutPanel tableLayoutPanel)
+                        {
+                            int correctAnswersCount = 0;
+                            bool correctAnswer = true;
+                            Dictionary<string, bool> answers = new Dictionary<string, bool>();
+                            foreach (XmlElement child in currentQuestion)
+                            {
+                                if (child.Name == "ansvar")
+                                    answers.Add(child.Attributes["id"].Value, false);
+                                if (child.Name == "correctanswer")
+                                    answers[child.Attributes["id"].Value] = true;
+                            }
+                            foreach (Control tlpControl in tableLayoutPanel.Controls)
+                            {
+                                if (tlpControl is CheckBox {Checked: true} checkBox)
+                                {
+                                    if (answers[checkBox.Name] == false)
+                                        correctAnswer = false;
+                                }
+                            }
+                            if (correctAnswer)
+                            {
+                                //TODO Dop-dores, malades
+                                MessageBox.Show("good");
+                            }
+                            else
+                            {
+                                // TODO Dores tugel, ebantяy
+                                MessageBox.Show("bad");
+                            }
+                        }
+                    }
+                }
+                    break;
+                case 3:
+                {
+                    foreach (Control control in currentPanel.Controls)
+                    {
+                        if (control is TextBox textBox)
+                        {
+                            if (textBox.Text == currentQuestion.Attributes["correctanswer"].Value)
+                            {
+                                //TODO Dop-dores, malades
+                                MessageBox.Show("good");
+                            }
+                            else
+                            {
+                                // TODO Dores tugel, ebantяy
+                                MessageBox.Show("bad");
+                            }
+                        }
+                    }
+                }
+                    break;
+                case 4:
+                {
+                    foreach (Control control in currentPanel.Controls)
+                    {
+                        if (control is TableLayoutPanel tableLayoutPanel)
+                        {
+                            string[] correctAnswers = new string[4];
+                            foreach (XmlElement child in currentQuestion)
+                            {
+                                if (child.Name == "correctanswerpair")
+                                    correctAnswers[int.Parse(child.Attributes["id1"].Value) - 1] =
+                                        child.Attributes["id2"].Value;
+
+                            }
+                            string[] answers = new string[4];
+                            foreach (Control tlpControl in tableLayoutPanel.Controls)
+                            {
+                                if (tlpControl is NumericUpDown numeric)
+                                {
+                                    answers[int.Parse(numeric.Name) - 1] = numeric.Text;
+                                }
+                            }
+
+                            bool equal = true;
+                            for (int i = 0; i < 4; i++)
+                            {
+                                if (answers[i] != correctAnswers[i]) 
+                                    equal = false;
+                            }
+
+                            if (equal)
+                            {
+                                //TODO Dop-dores, malades
+                                MessageBox.Show("good");
+                            }
+                            else
+                            {
+                                // TODO Dores tugel, ebantяy
+                                MessageBox.Show("bad");
+                            }
+                        }
+                    }
+                }
+                    break;
+            }
+        }
     }
-    
+
 }
