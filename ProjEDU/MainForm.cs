@@ -118,7 +118,6 @@ namespace ProjEDU
                 Content contentFirst = contents.First(c => c.Type == "Test");
                 doc = Content.ToXml(contentFirst.XMLText);
             }
-            ////////////////////////////////////////////////////////////////////////
             foreach (XmlNode node in doc.SelectNodes("//question"))
             {
                 var treeNode = new TreeNode();
@@ -264,6 +263,7 @@ namespace ProjEDU
                 switch (question.Attributes["type"].Value)
                 {
                     case "1":
+
                         {
                             LoadPanelType1(panelTest, question);
                         }
@@ -283,6 +283,7 @@ namespace ProjEDU
                             LoadPanelType4(panelTest, question);
                         }
                         break;
+
                 }
             }
         }

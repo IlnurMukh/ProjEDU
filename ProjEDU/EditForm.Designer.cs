@@ -48,14 +48,19 @@
             btnAdd3 = new Button();
             richTextBox3 = new RichTextBox();
             treeView3 = new TreeView();
+            tabPage4 = new TabPage();
+            btnSave4 = new Button();
+            btnDel4 = new Button();
+            btnAdd4 = new Button();
+            treeView4 = new TreeView();
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
-            tabPage4 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -269,6 +274,58 @@
             treeView3.TabIndex = 2;
             treeView3.AfterSelect += treeView3_AfterSelect;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(btnSave4);
+            tabPage4.Controls.Add(btnDel4);
+            tabPage4.Controls.Add(btnAdd4);
+            tabPage4.Controls.Add(treeView4);
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1264, 426);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Тест";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnSave4
+            // 
+            btnSave4.Location = new Point(113, 347);
+            btnSave4.Name = "btnSave4";
+            btnSave4.Size = new Size(98, 44);
+            btnSave4.TabIndex = 4;
+            btnSave4.Text = "Сохранить";
+            btnSave4.UseVisualStyleBackColor = true;
+            btnSave4.Click += btnSave4_Click;
+            // 
+            // btnDel4
+            // 
+            btnDel4.Location = new Point(5, 347);
+            btnDel4.Name = "btnDel4";
+            btnDel4.Size = new Size(98, 44);
+            btnDel4.TabIndex = 3;
+            btnDel4.Text = "Удалить";
+            btnDel4.UseVisualStyleBackColor = true;
+            btnDel4.Click += btnDel4_Click;
+            // 
+            // btnAdd4
+            // 
+            btnAdd4.Location = new Point(5, 284);
+            btnAdd4.Name = "btnAdd4";
+            btnAdd4.Size = new Size(206, 48);
+            btnAdd4.TabIndex = 2;
+            btnAdd4.Text = "Добавить";
+            btnAdd4.UseVisualStyleBackColor = true;
+            btnAdd4.Click += btnAdd4_Click;
+            // 
+            // treeView4
+            // 
+            treeView4.Location = new Point(5, 3);
+            treeView4.Name = "treeView4";
+            treeView4.RightToLeft = RightToLeft.No;
+            treeView4.Size = new Size(206, 275);
+            treeView4.TabIndex = 1;
+            treeView4.AfterSelect += treeView4_AfterSelect;
+            // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
@@ -292,15 +349,6 @@
             editToolStripMenuItem.Size = new Size(97, 24);
             editToolStripMenuItem.Text = "Сохранить";
             // 
-            // tabPage4
-            // 
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1264, 426);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Тест";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
             // EditForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -315,6 +363,7 @@
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -347,5 +396,9 @@
         private Button btnEdit2;
         private Button btnEdit3;
         private TabPage tabPage4;
+        private Button btnSave4;
+        private Button btnDel4;
+        private Button btnAdd4;
+        private TreeView treeView4;
     }
 }
